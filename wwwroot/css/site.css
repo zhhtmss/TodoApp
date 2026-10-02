@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f4f7;
+    color: #222;
+}
+
+.todo-container,
+.edit-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.add-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+    .add-form input {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+button,
+.edit-btn,
+.back-btn {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.add-form button {
+    background: #2196f3;
+    color: white;
+}
+
+.tasks {
+    margin-top: 20px;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f7f7f7;
+    border-radius: 10px;
+}
+
+.task-title {
+    font-size: 17px;
+    flex: 1;
+}
+
+.completed .task-title {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
+
+.complete-btn {
+    background: #4caf50;
+    color: white;
+}
+
+.edit-btn {
+    background: #ff9800;
+    color: white;
+}
+
+.delete-btn {
+    background: #f44336;
+    color: white;
+}
+
+.empty {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
+
+.validation {
+    color: #f44336;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+.checkbox {
+    margin-bottom: 20px;
+}
+
+.edit-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.save-btn {
+    background: #4caf50;
+    color: white;
+}
+
+.back-btn {
+    background: #777;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .task {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .task-buttons {
+        flex-wrap: wrap;
+    }
+
+    .add-form {
+        flex-direction: column;
+    }
+}

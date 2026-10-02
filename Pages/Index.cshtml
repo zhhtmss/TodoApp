@@ -1,0 +1,82 @@
+﻿@page
+@model TodoApp.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "To-Do List";
+}
+
+<div class="todo-container">
+
+    <h1>📝 To-Do List</h1>
+
+    <form method="post" asp-page-handler="Add" class="add-form">
+
+        <input asp-for="NewTask.Title"
+               placeholder="Введіть нове завдання..." />
+
+        <button type="submit">
+            Додати
+        </button>
+
+    </form>
+
+    <span asp-validation-for="NewTask.Title"
+          class="validation"></span>
+
+    <div class="tasks">
+
+        @if (Model.Tasks.Count == 0)
+        {
+            <div class="empty">
+                Список завдань порожній
+            </div>
+        }
+        else
+        {
+            @foreach (var task in Model.Tasks)
+            {
+                <div class="task @(task.IsCompleted ? "completed" : "")">
+
+                    <div class="task-title">
+                        @task.Title
+                    </div>
+
+                    <div class="task-buttons">
+
+                        <form method="post"
+                              asp-page-handler="Toggle"
+                              asp-route-id="@task.Id">
+
+                            <button type="submit" class="complete-btn">
+                                @(task.IsCompleted ? "↩ Невиконано" : "✓ Виконано")
+                            </button>
+
+                        </form>
+
+                        <a asp-page="/Edit"
+                           asp-route-id="@task.Id"
+                           class="edit-btn">
+                            ✏ Редагувати
+                        </a>
+
+                        <form method="post"
+                              asp-page-handler="Delete"
+                              asp-route-id="@task.Id">
+
+                            <button type="submit"
+                                    class="delete-btn"
+                                    onclick="return confirm('Видалити завдання?');">
+                                🗑 Видалити
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+            }
+        }
+
+    </div>
+
+</div>

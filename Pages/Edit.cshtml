@@ -1,0 +1,53 @@
+﻿@page
+@model TodoApp.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Редагування";
+}
+
+<div class="edit-container">
+
+    <h1>✏ Редагування завдання</h1>
+
+    <form method="post">
+
+        <input type="hidden" asp-for="Task.Id" />
+
+        <div class="form-group">
+
+            <label asp-for="Task.Title">
+                Назва завдання
+            </label>
+
+            <input asp-for="Task.Title" />
+
+            <span asp-validation-for="Task.Title"
+                  class="validation"></span>
+
+        </div>
+
+        <div class="checkbox">
+
+            <input asp-for="Task.IsCompleted" />
+
+            <label asp-for="Task.IsCompleted">
+                Завдання виконано
+            </label>
+
+        </div>
+
+        <div class="edit-buttons">
+
+            <button type="submit" class="save-btn">
+                💾 Зберегти
+            </button>
+
+            <a asp-page="/Index" class="back-btn">
+                ← Назад
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
